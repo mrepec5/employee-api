@@ -18,9 +18,9 @@ class Employee(models.Model):
         ('MGR', 'Manager'),
     ]
 
-    name = models.CharField(max_length=254)
+    name = models.CharField(max_length=254, db_index=True)
     email = models.EmailField(max_length=254, unique=True, null=True, blank=True)
-    department = models.ForeignKey(Department, on_delete=models.CASCADE)
+    department = models.ForeignKey(Department, on_delete=models.CASCADE, related_name='employees')
     job_title = models.CharField(max_length=254, default='Specialist')
     seniority = models.CharField(max_length=3, choices=SENIORITY_CHOICES, default='JR')
     salary = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True)
