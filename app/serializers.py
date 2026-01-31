@@ -5,10 +5,23 @@ from app.models import Department, Employee
 class DepartmentSerializer(serializers.ModelSerializer):
     class Meta:
         model=Department
-        fields='__all__'
+        fields = ['id', 'name', 'location']
 
 
 class EmployeeSerializer(serializers.ModelSerializer):
+    department_name=serializers.CharField(source='department.name', read_only=True)
+
     class Meta:
         model=Employee
-        fields='__all__'
+        fields = [
+            'id',
+            'name',
+            'email',
+            'department',
+            'department_name',
+            'job_title',
+            'seniority',
+            'salary',
+            'date_of_joining',
+            'is_active'
+        ]
