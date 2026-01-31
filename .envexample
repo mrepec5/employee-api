@@ -1,0 +1,2 @@
+SECRET_KEY=yours-secret-key
+DEBUG=True
