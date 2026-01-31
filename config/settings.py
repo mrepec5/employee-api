@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'app.apps.AppConfig',
     'rest_framework',
     'drf_spectacular',
+    'django_filters',
 ]
 
 REST_FRAMEWORK = {
